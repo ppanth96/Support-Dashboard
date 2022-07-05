@@ -1,0 +1,31 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "Support Dashboard",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "devStart": "nodemon app.js",
+    "tests": "node test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppanth96/Support-Dashboard.git"
+  },
+  "author": "Prashant & Michael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppanth96/Support-Dashboard/issues"
+  },
+  "homepage": "https://github.com/ppanth96/Support-Dashboard#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "request": "^2.88.2",
+    "nodemon": "^2.0.16"
+  }
+}
