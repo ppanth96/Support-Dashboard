@@ -23,7 +23,7 @@ const publicRouter = require('./ticketCounts')
 
 
 // Deep link to Primary Path Routers 
-app.use('',publicRouter)
+app.use('/',publicRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

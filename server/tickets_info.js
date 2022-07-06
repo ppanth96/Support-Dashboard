@@ -1,7 +1,7 @@
 const config = require("./index");
 const axios = require("axios");
 
-async function planEnterprise(installBody) {
+async function planEnterprise() {
   try {
     return new Promise((resolve, reject) => {
       var url =
@@ -21,7 +21,7 @@ async function planEnterprise(installBody) {
   }
 }
 
-async function planMidmarket(installBody) {
+async function planMidmarket() {
   try {
     return new Promise((resolve, reject) => {
       var url =
@@ -41,7 +41,7 @@ async function planMidmarket(installBody) {
   }
 }
 
-async function firstResponse(installBody) {
+async function firstResponse() {
   try {
     return new Promise((resolve, reject) => {
       var url =
@@ -61,8 +61,50 @@ async function firstResponse(installBody) {
   }
 }
 
+async function onAgents() {
+  try {
+    return new Promise((resolve, reject) => {
+      var url =
+        "https://rtm.zopim.com/stream/agents";
+      axios
+        .get(url, config.chatconfiguration)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+          resolve(response.data.content.data.agents_online);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
+async function incomingChats() {
+  try {
+    return new Promise((resolve, reject) => {
+      var url =
+        "https://rtm.zopim.com/stream/chats";
+      axios
+        .get(url, config.chatconfiguration)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+          resolve(response.data.content.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
 module.exports = {
   planEnterprise,
   planMidmarket,
-  firstResponse
+  firstResponse,
+  onAgents,
+  incomingChats
 };

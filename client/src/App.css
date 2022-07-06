@@ -1,0 +1,48 @@
+html, .App, .body {
+    background-color: #143250;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .05rem;
+    height: 100vh;
+  }
+  
+  
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #D9EDFB;
+  }
+  
+  .z-depth-2{
+    background-color: rgba(15,41,68,.95);
+    height: inherit;
+  
+  }
+  
+  .performance{
+    margin-top: -1%;
+  }
+  
+  button {
+    float: right;
+    border: unset;
+    color: #ff8c3c;
+    opacity: 0.75;
+  }
+  
+  
+  .fullscreen-enabled footer{
+    margin-top: -80%;
+  }
+  
+  .escape-full {
+    visibility: hidden;
+    border: unset;
+  }
+  
+  .fullscreen-enabled .escape-full{
+    margin-top: 10px;
+    margin-right: 10px;
+    visibility: visible;
+    border: unset;
+    opacity: 0.75;
+  }
+  
