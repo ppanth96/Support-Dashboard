@@ -61,6 +61,26 @@ async function firstResponse() {
   }
 }
 
+async function openVms() {
+  try {
+    return new Promise((resolve, reject) => {
+      var url =
+        "https://d1support.zendesk.com/api/v2/search.json?query=type:ticket status<pending type:group group_id:360008758873 assignee:none";
+      axios
+        .get(url, config.configuration)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+          resolve(response.data.count);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
 async function onAgents() {
   try {
     return new Promise((resolve, reject) => {
@@ -105,6 +125,7 @@ module.exports = {
   planEnterprise,
   planMidmarket,
   firstResponse,
+  openVms,
   onAgents,
   incomingChats
 };

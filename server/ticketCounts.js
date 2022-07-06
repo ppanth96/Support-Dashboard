@@ -4,6 +4,7 @@ const {
   planEnterprise,
   planMidmarket,
   firstResponse,
+  openVms,
   onAgents,
   incomingChats
   
@@ -22,10 +23,12 @@ app.get("/ticket", async (req, res) => {
     const plan_firstresponse = await firstResponse();
     const online_agents = await onAgents();
     const incoming_chats = await incomingChats();
+    const open_vms = await openVms();
     const ticket_data = [{
       "first_response": plan_firstresponse,
       "mid_market": plan_midmarket,
       "enterprise": plan_enterprise,
+      "voicemails": open_vms,
       "active_agents":online_agents,
       "incoming_chats":incoming_chats.incoming_chats,
       "active_chats":incoming_chats.active_chats

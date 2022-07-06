@@ -23,7 +23,7 @@ function chatsReceived(active_agents, incoming_chats, active_chats) {
   );
 }
 
-function ticketOpen(First_response, Mid_market, Enterprise) {
+function ticketOpen(First_response, Mid_market, Enterprise, voicemails) {
   return (
     <div className="tickets-open">
       <h3 className="bench-header">Tickets Open By Segments</h3>
@@ -39,6 +39,10 @@ function ticketOpen(First_response, Mid_market, Enterprise) {
         <li>
           <p className="thirtyday">Mid Market</p>
           <p className="thirtyday-value">{Mid_market}</p>
+        </li>
+        <li>
+          <p className="thirtyday">Voice Mail</p>
+          <p className="thirtyday-value">{voicemails}</p>
         </li>
       </ul>
     </div>
@@ -66,7 +70,7 @@ function Benchmark() {
             item.incoming_chats,
             item.active_chats
           )}
-          {ticketOpen(item.first_response, item.mid_market, item.enterprise)}
+          {ticketOpen(item.first_response, item.mid_market, item.enterprise, item.voicemails)}
           <div className="credit">
             Made by <span className="team-name">Prashant</span>
           </div>
