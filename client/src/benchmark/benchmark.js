@@ -7,11 +7,11 @@ function chatsReceived(active_agents, incoming_chats, active_chats) {
       <h3 className="bench-header">Chats/Agents Detials</h3>
       <ul className="received-list">
         <li>
-          <p className="today">Open Chats</p>
+          <p className="today">Chats Waiting</p>
           <p className="today-value">{incoming_chats}</p>
         </li>
         <li>
-          <p className="today">Active Chats</p>
+          <p className="today">Chats Taken</p>
           <p className="today-value">{active_chats}</p>
         </li>
         <li>

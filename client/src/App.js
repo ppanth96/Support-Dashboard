@@ -6,18 +6,6 @@ import Nav from "./benchmark/benchmark.js";
 import "./App.css";
 
 function App() {
-  // const [backendData, setBackendData] = useState([{}])
-
-  // useEffect(() =>{
-  //   fetch("/api").then(
-  //     response => response.json()
-  //   ).then(
-  //     data => {
-  //       setBackendData(data)
-  //     }
-
-  //   )
-  // },[])
   return (
     <div className="App">
       <button class="transparent amber-text text-darken-3">X</button>
@@ -25,10 +13,10 @@ function App() {
         X
       </button>
       <div class="row body">
-        <div class="col s12 m4 l3 z-depth-2 center-align"><Nav /></div>
-        <div class="col s12 m8 l9 center-align performance">
-          
+        <div class="col s12 m4 l3 z-depth-2 center-align">
+          <Nav />
         </div>
+        <div class="col s12 m8 l9 center-align performance"></div>
       </div>
     </div>
   );
