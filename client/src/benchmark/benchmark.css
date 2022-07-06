@@ -88,15 +88,19 @@ ul {
     margin-top: 40%;
   }
   
-  .team-name {
+  .operation-status {
     color: #ff8c3c;
   }
   
-  .credit {
-    float: left;
+  .status {
     opacity: 0.75;
     color: #D9EDFB;
     font-size: 15px;
+    margin-top: 9%;
+  }
+
+  .platform{
+    color: #FFF;
   }
   
   .fullscreen-enabled .credit{

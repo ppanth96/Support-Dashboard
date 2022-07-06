@@ -7,7 +7,9 @@ const {
   vmsActivity,
   openVms,
   onAgents,
-  incomingChats
+  incomingChats,
+  dudaStatus,
+  ecwidStatus
   
 } = require("./tickets_info.js");
 //ask how to get the path
@@ -26,6 +28,8 @@ app.get("/ticket", async (req, res) => {
     const incoming_chats = await incomingChats();
     const open_vms = await openVms();
     const vms_activity = await vmsActivity();
+    const duda_status = await dudaStatus();
+    const ecwid_status = await ecwidStatus();
     const ticket_data = [{
       "first_response": plan_firstresponse,
       "mid_market": plan_midmarket,
@@ -36,7 +40,9 @@ app.get("/ticket", async (req, res) => {
       "callbacks_waiting": vms_activity.callbacks_waiting,
       "active_agents":online_agents,
       "incoming_chats":incoming_chats.incoming_chats,
-      "active_chats":incoming_chats.active_chats
+      "active_chats":incoming_chats.active_chats,
+      "duda_status":duda_status,
+      "ecwid_status": ecwid_status
     }];
     res.send(ticket_data);
   } catch (error) {

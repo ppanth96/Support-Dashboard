@@ -9,7 +9,7 @@ async function planEnterprise() {
       axios
         .get(url, config.configuration)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          // console.log(JSON.stringify(response.data));
           resolve(JSON.stringify(response.data.count));
         })
         .catch(function (error) {
@@ -29,7 +29,7 @@ async function planMidmarket() {
       axios
         .get(url, config.configuration)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          // console.log(JSON.stringify(response.data));
           resolve(JSON.stringify(response.data.count));
         })
         .catch(function (error) {
@@ -49,7 +49,7 @@ async function firstResponse() {
       axios
         .get(url, config.configuration)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          // console.log(JSON.stringify(response.data));
           resolve(response.data.count);
         })
         .catch(function (error) {
@@ -68,7 +68,7 @@ async function vmsActivity() {
       axios
         .get(url, config.configuration)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          // console.log(JSON.stringify(response.data));
           resolve(response.data.current_queue_activity);
         })
         .catch(function (error) {
@@ -87,7 +87,7 @@ async function openVms() {
       axios
         .get(url, config.configuration)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          // console.log(JSON.stringify(response.data));
           resolve(response.data.count);
         })
         .catch(function (error) {
@@ -107,7 +107,7 @@ async function onAgents() {
       axios
         .get(url, config.chatconfiguration)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          // console.log(JSON.stringify(response.data));
           resolve(response.data.content.data.agents_online);
         })
         .catch(function (error) {
@@ -127,7 +127,7 @@ async function incomingChats() {
       axios
         .get(url, config.chatconfiguration)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          // console.log(JSON.stringify(response.data));
           resolve(response.data.content.data);
         })
         .catch(function (error) {
@@ -139,6 +139,47 @@ async function incomingChats() {
   }
 }
 
+async function dudaStatus() {
+  try {
+    return new Promise((resolve , reject) => {
+      var url =
+        "https://status.duda.co/api/v2/status.json";
+      axios
+        .get(url)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data.status.description));
+          resolve(response.data.status.description);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
+async function ecwidStatus() {
+  try {
+    return new Promise((resolve , reject) => {
+      var url =
+        "https://status.ecwid.com/api/v2/status.json";
+      axios
+        .get(url)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data.status.description));
+          resolve(response.data.status.description);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
+
 module.exports = {
   planEnterprise,
   planMidmarket,
@@ -146,5 +187,7 @@ module.exports = {
   vmsActivity,
   openVms,
   onAgents,
-  incomingChats
+  incomingChats,
+  dudaStatus,
+  ecwidStatus
 };

@@ -48,7 +48,7 @@ function ticketOpen(First_response, Mid_market, Enterprise) {
 function vmsData(callbacks_waiting, agents_online, calls_waiting, voicemails) {
   return (
     <div className="tickets-open">
-      <h3 className="bench-header">Voicemails Segments</h3>
+      <h3 className="bench-header">Phones Segments</h3>
       <ul className="open-list">
         <li>
           <p className="thirtyday">Callbacks Waiting</p>
@@ -71,6 +71,73 @@ function vmsData(callbacks_waiting, agents_online, calls_waiting, voicemails) {
   );
 }
 
+function statusOperational(duda_status, ecwid_status) {
+  if (
+    duda_status === "All Systems Operational" &&
+    ecwid_status === "All Systems Operational"
+  ) {
+    return (
+      <div>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="12" height="12" rx="6" fill="#60BEB9" />
+        </svg>
+        <span className="operation-status">
+          {duda_status} <span className="platform">(Duda)</span>
+        </span>
+        <br></br>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="12" height="12" rx="6" fill="#60BEB9" />
+        </svg>
+        <span className="operation-status">
+          {ecwid_status} <span className="platform">(Ecwid)</span>
+        </span>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="12" height="12" rx="6" fill="#f66035" />
+        </svg>
+        <span className="operation-status">
+          {duda_status} <span className="platform">(Duda)</span>
+        </span>
+        <br></br>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="12" height="12" rx="6" fill="#f66035" />
+        </svg>
+        <span className="operation-status">
+          {ecwid_status} <span className="platform">(Ecwid)</span>
+        </span>
+      </div>
+    );
+  }
+}
+
 function Benchmark() {
   useEffect(() => {
     fetchItems();
@@ -87,6 +154,9 @@ function Benchmark() {
     <section>
       {items.map((item) => (
         <div className="benchmarks-bar">
+          <div className="status">
+          {statusOperational(item.duda_status,item.ecwid_status)}
+          </div>
           {ticketOpen(item.first_response, item.mid_market, item.enterprise)}
           {chatsReceived(
             item.active_agents,
@@ -99,10 +169,6 @@ function Benchmark() {
             item.calls_waiting,
             item.voicemails
           )}
-
-          <div className="credit">
-            Made by <span className="team-name">Prashant</span>
-          </div>
         </div>
       ))}
     </section>
