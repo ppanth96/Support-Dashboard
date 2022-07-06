@@ -140,7 +140,10 @@ function statusOperational(duda_status, ecwid_status) {
 
 function Benchmark() {
   useEffect(() => {
-    fetchItems();
+    fetchItems()
+    console.log("hey it's working!")
+    const intervalId = setInterval(fetchItems, 180000);
+    return function() { clearInterval(intervalId) }
   }, []);
 
   const [items, setItems] = useState([]);

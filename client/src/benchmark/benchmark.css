@@ -18,7 +18,7 @@ ul {
     border-color: #2D5D7E;
   }
   
-  li:last-child, li:nth-child(2) {
+  li:last-child {
     border: 0;
   }
   
