@@ -60,7 +60,25 @@ async function firstResponse() {
     console.warn(e);
   }
 }
-
+async function vmsActivity() {
+  try {
+    return new Promise((resolve, reject) => {
+      var url =
+        "https://d1support.zendesk.com/api/v2/channels/voice/stats/current_queue_activity";
+      axios
+        .get(url, config.configuration)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+          resolve(response.data.current_queue_activity);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+  } catch (e) {
+    console.warn(e);
+  }
+}
 async function openVms() {
   try {
     return new Promise((resolve, reject) => {
@@ -83,7 +101,7 @@ async function openVms() {
 
 async function onAgents() {
   try {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve , reject) => {
       var url =
         "https://rtm.zopim.com/stream/agents";
       axios
@@ -125,6 +143,7 @@ module.exports = {
   planEnterprise,
   planMidmarket,
   firstResponse,
+  vmsActivity,
   openVms,
   onAgents,
   incomingChats
