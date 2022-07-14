@@ -2,7 +2,7 @@ html, .App, .body {
     background-color: #143250;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .05rem;
-    height: 100vh;
+    height: 117vh;
   }
   
   
@@ -27,22 +27,35 @@ html, .App, .body {
     color: #ff8c3c;
     opacity: 0.75;
   }
-  
-  
-  .fullscreen-enabled footer{
-    margin-top: -80%;
+
+  @media (min-width: 0px) and (max-width: 768px) {
+    .received-list > li, .open-list > li {
+      border-right: 0px;
   }
-  
-  .escape-full {
-    visibility: hidden;
-    border: unset;
+  .row .col.m4 {
+    width: 33.3333333333%;
+    margin-left: auto;
+    left: auto;
+    height: 154vh;
+    right: auto;
+}
+}
+  @media (min-width: 768px) and (max-width: 1200px) {
+
   }
+  @media (min-width: 1200px) {
+    .row .col.l9 {
+      width: 70%;
+      margin-left: auto;
+      left: auto;
+      right: auto;
   
-  .fullscreen-enabled .escape-full{
-    margin-top: 10px;
-    margin-right: 10px;
-    visibility: visible;
-    border: unset;
-    opacity: 0.75;
   }
-  
+  .row .col.l3 {
+    width: 30%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    height: 141vh;
+  }
+  }

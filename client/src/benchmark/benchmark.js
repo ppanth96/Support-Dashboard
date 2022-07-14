@@ -73,7 +73,7 @@ function vmsData(callbacks_waiting, agents_online, calls_waiting, voicemails) {
 
 function statusOperational(duda_status, ecwid_status) {
   if (
-    duda_status === "All Systems Operational" &&
+    duda_status === "All Systems Operational" ||
     ecwid_status === "All Systems Operational"
   ) {
     return (
@@ -140,11 +140,15 @@ function statusOperational(duda_status, ecwid_status) {
 
 function Benchmark() {
   useEffect(() => {
-    fetchItems()
-    console.log("hey it's working!")
-    const intervalId = setInterval(fetchItems, 180000);
-    return function() { clearInterval(intervalId) }
+    fetchItems();
   }, []);
+
+  // useEffect(() => {
+  //   fetchItems()
+  //   console.log("hey it's working!")
+  //   const intervalId = setInterval(fetchItems, 180000);
+  //   return function() { clearInterval(intervalId) }
+  // }, []);
 
   const [items, setItems] = useState([]);
 

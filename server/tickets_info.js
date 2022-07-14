@@ -5,7 +5,7 @@ async function planEnterprise() {
   try {
     return new Promise((resolve, reject) => {
       var url =
-        "https://d1support.zendesk.com/api/v2/search/count.json?query=type:ticket status:open type:group group_id:20032183 tags:plan_enterprise assignee:none";
+        "https://d1support.zendesk.com/api/v2/search/count.json?query=type:ticket status:open type:group group_id:20032183 group_id:128337 tags:plan_enterprise assignee:none";
       axios
         .get(url, config.configuration)
         .then(function (response) {
@@ -45,7 +45,7 @@ async function firstResponse() {
   try {
     return new Promise((resolve, reject) => {
       var url =
-        "https://d1support.zendesk.com/api/v2/search/count.json?query=type:ticket status<pending group_id:128337 group_id:360008758873 group_id:20032183 assignee:none";
+        "https://d1support.zendesk.com/api/v2/search/count.json?query=type:ticket status<pending group_id:128337 group_id:360008758873 group_id:20032183 group_id:360008788134 assignee:none";
       axios
         .get(url, config.configuration)
         .then(function (response) {
@@ -147,7 +147,6 @@ async function dudaStatus() {
       axios
         .get(url)
         .then(function (response) {
-          console.log(JSON.stringify(response.data.status.description));
           resolve(response.data.status.description);
         })
         .catch(function (error) {
@@ -167,7 +166,6 @@ async function ecwidStatus() {
       axios
         .get(url)
         .then(function (response) {
-          console.log(JSON.stringify(response.data.status.description));
           resolve(response.data.status.description);
         })
         .catch(function (error) {
